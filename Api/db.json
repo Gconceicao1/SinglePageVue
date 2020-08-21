@@ -1,0 +1,183 @@
+{
+  "professores": [
+    {
+      "id": 1,
+      "nome": "Gabriel",
+      "sobreNome": "de Moraes Domingues",
+      "materia": "Web Desinger"
+    },
+    {
+      "id": 2,
+      "nome": "Jorge",
+      "sobreNome": "Benjor",
+      "materia": "Fundamentos da MPB"
+    },
+    {
+      "id": 3,
+      "nome": "Jimmi",
+      "sobreNome": "Hendrix",
+      "materia": "Funk Guitar"
+    }
+  ],
+  "alunos": [
+    {
+      "id": 1,
+      "nome": "Carlos",
+      "sobreNome": "Rodrigues",
+      "dataNasc": "01/02/1998",
+      "professor": {
+        "id": 2,
+        "nome": "Jorge",
+        "sobreNome": "Benjor",
+        "materia": "Fundamentos da MPB"
+      }
+    },
+    {
+      "nome": "Luiz",
+      "sobreNome": "Lariovich",
+      "id": 2,
+      "professor": {
+        "id": 3,
+        "nome": "Jimmi",
+        "sobreNome": "Hendrix",
+        "materia": "Funk Guitar"
+      }
+    },
+    {
+      "nome": "Rodolfo Algusto",
+      "sobreNome": "",
+      "id": 3,
+      "professor": {
+        "id": 3,
+        "nome": "Jimmi",
+        "sobreNome": "Hendrix",
+        "materia": "Funk Guitar"
+      }
+    },
+    {
+      "id": 4,
+      "nome": "Claiton",
+      "sobreNome": "Rasta",
+      "dataNasc": "14/08/1996",
+      "professor": {
+        "id": 2,
+        "nome": "Jorge",
+        "sobreNome": "Benjor",
+        "materia": "Fundamentos da MPB"
+      }
+    },
+    {
+      "nome": "Guirerme",
+      "sobreNome": "Damenes",
+      "id": 5,
+      "professor": {
+        "id": 2,
+        "nome": "Jorge",
+        "sobreNome": "Benjor",
+        "materia": "Fundamentos da MPB"
+      }
+    },
+    {
+      "nome": "Wellington",
+      "sobreNome": "",
+      "professor": {
+        "id": 1,
+        "nome": "Gabriel",
+        "sobreNome": "de Moraes Domingues",
+        "materia": "Web Desinger"
+      },
+      "id": 6
+    },
+    {
+      "nome": "Miguel",
+      "sobreNome": "dos Santos",
+      "professor": {
+        "id": 1,
+        "nome": "Gabriel",
+        "sobreNome": "de Moraes Domingues",
+        "materia": "Web Desinger"
+      },
+      "id": 8
+    },
+    {
+      "nome": "Fábio ",
+      "sobreNome": "Pereira de Sousa",
+      "professor": {
+        "id": 1,
+        "nome": "Gabriel",
+        "sobreNome": "de Moraes Domingues",
+        "materia": "Web Desinger"
+      },
+      "id": 9
+    },
+    {
+      "nome": "Rodrigo",
+      "sobreNome": "Constantino",
+      "professor": {
+        "id": 1,
+        "nome": "Gabriel",
+        "sobreNome": "de Moraes Domingues",
+        "materia": "Web Desinger"
+      },
+      "id": 10
+    },
+    {
+      "id": 11,
+      "nome": "Eddy",
+      "sobreNome": "Van Halen ",
+      "professor": {
+        "id": 1,
+        "nome": "Gabriel",
+        "sobreNome": "de Moraes Domingues",
+        "materia": "Web Desinger"
+      }
+    },
+    {
+      "nome": "Caitano ",
+      "sobreNome": "Velozo",
+      "professor": {
+        "id": 2,
+        "nome": "Jorge",
+        "sobreNome": "Benjor",
+        "materia": "Fundamentos da MPB"
+      },
+      "id": 12
+    },
+    {
+      "nome": "Maria ",
+      "sobreNome": "Roberta Campos",
+      "professor": {
+        "id": 1,
+        "nome": "Gabriel"
+      },
+      "id": 14
+    },
+    {
+      "nome": "Roberval",
+      "sobreNome": "Dias",
+      "professor": {
+        "id": 1,
+        "nome": "Gabriel"
+      },
+      "id": 15
+    },
+    {
+      "nome": "Martinho ",
+      "sobreNome": "da Villa",
+      "professor": {
+        "id": 2,
+        "nome": "Jorge"
+      },
+      "id": 16
+    },
+    {
+      "nome": "Magic",
+      "sobreNome": "Mike",
+      "professor": {
+        "id": 1,
+        "nome": "Gabriel"
+      },
+      "id": 17
+    }
+  ]
+}
