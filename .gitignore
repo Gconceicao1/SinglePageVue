@@ -23,3 +23,6 @@ pnpm-debug.log*
 Resultados da pesquisa
 Resultados da Web
 
+# .NetCore Ef core
+bin
+obj
