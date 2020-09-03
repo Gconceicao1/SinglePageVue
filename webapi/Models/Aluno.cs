@@ -11,6 +11,6 @@ namespace webapi.Models
 
         public int ProfessorId { get; set; }
 
-        public Professor Professor { get; set; }
+        public Professor  Professor { get; set;}
     }
 }

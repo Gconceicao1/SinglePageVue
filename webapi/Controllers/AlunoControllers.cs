@@ -1,48 +1,155 @@
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Http;
+using webapi.Data;
+using webapi.Models;
+using System.Threading.Tasks;
 
 namespace webapi.Controllers
 {
 
     [Route("api/[controller]")]
     [ApiController]
-    public class AlunoController :ControllerBase
+    public class AlunoController : ControllerBase
     {
-        public AlunoController()
+        public IRepository _repo { get; }
+        public AlunoController(IRepository repo)
         {
-            
+            _repo = repo;
+
         }
 
-                [HttpGet]
-        public IActionResult Get()
-
+        [HttpGet]
+        public async Task<IActionResult> Get()
         {
-            return Ok();
+
+
+            try
+            {
+                var result = await _repo.GetAllAlunosAsync(true);
+                return Ok(result);
+            }
+            catch (System.Exception)
+            {
+
+                return this.StatusCode(StatusCodes.Status500InternalServerError, "Erro ao comunicar com a base de dados");
+            }
+
+
+
         }
+        [HttpGet("ByProfessor/{ProfessorId}")]
+        public async Task<IActionResult> GetAlunoByProfessorId(int ProfessorId)
+        {
+
+
+            try
+            {
+                var result = await _repo.GetAlunoByProfessorId(ProfessorId, true);
+                return Ok(result);
+            }
+            catch (System.Exception)
+            {
+
+                return this.StatusCode(StatusCodes.Status500InternalServerError, "Erro ao comunicar com a base de dados");
+            }
+
+
+
+        }
+
         [HttpGet("{alunoId}")]
-        public IActionResult Get(int alunoId)
+        public async Task<IActionResult> Get(int alunoId)
 
         {
-            return Ok();
+            var result = await _repo.GetAlunoAsyncById(alunoId, true);
+            try
+            {
+                return Ok(result);
+            }
+            catch (System.Exception)
+            {
+
+                return this.StatusCode(StatusCodes.Status500InternalServerError, "Erro ao comunicar com a base de dados");
+            }
+
         }
 
         [HttpPost]
-        public IActionResult Post()
+        public async Task<IActionResult> Post(Aluno model)
 
         {
-            return Ok();
+            try
+            {
+                _repo.Add(model);
+                if (await _repo.SaveChangesAsync())
+                {
+                    return Created($"/api/aluno/{model.Id}", model);
+                }
+
+            }
+            catch (System.Exception)
+            {
+
+                return this.StatusCode(StatusCodes.Status500InternalServerError, "Erro ao comunicar com a base de dados");
+            }
+
+            return BadRequest();
+
         }
         [HttpPut("{alunoId}")]
-        public IActionResult Put(int alunoId)
+        public async Task<IActionResult> Put(int alunoId, Aluno model)
 
         {
-            return Ok();
+
+            try
+            {
+                var aluno = await _repo.GetAlunoAsyncById(alunoId, false);
+
+                if (aluno == null) return NotFound();
+
+                _repo.Update(model);
+
+                if (await _repo.SaveChangesAsync())
+                {
+                    aluno = await _repo.GetAlunoAsyncById(alunoId, true);
+                    return Created($"/api/aluno/{model.Id}", model);
+                }
+            }
+            catch (System.Exception)
+            {
+
+                return this.StatusCode(StatusCodes.Status500InternalServerError, "Erro ao comunicar com a base de dados");
+            }
+
+            return BadRequest();
+
         }
-        
+
         [HttpDelete("{alunoId}")]
-        public IActionResult Delete(int alunoId)
+        public async Task<IActionResult> Delete(int alunoId)
 
         {
-            return Ok();
+            try
+            {
+                var aluno = await _repo.GetAlunoAsyncById(alunoId, false);
+
+                if (aluno == null) return NotFound();
+
+                _repo.Delete(aluno);
+
+                if (await _repo.SaveChangesAsync())
+                {
+                    aluno = await _repo.GetAlunoAsyncById(alunoId, true);
+                    return Ok();
+                }
+            }
+            catch (System.Exception)
+            {
+
+                return this.StatusCode(StatusCodes.Status500InternalServerError, "Erro ao comunicar com a base de dados");
+            }
+
+            return BadRequest();
         }
     }
 }
